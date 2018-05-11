@@ -170,3 +170,19 @@ pairElement("ATCGA");
 } 
 
 fearNotLetter("abce");
+
+// Boo Who, Check if a value is classified as a boolean primitive. Return true or false.
+function booWho(bool) {
+  // if bool is true, it's classified as a boolean primitive, return true.
+  if (bool === true) {
+    return true;
+    // if bool is false, it's classified as a boolean primitive, return true.
+  } else if (bool === false) {
+    return true;
+    // if the if and else if don't pass. It is not a boolean primitive, return false.
+  } else {
+    return false;
+  }
+}
+
+booWho(null);
