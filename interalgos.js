@@ -226,3 +226,59 @@ function spinalCase(str) {
 
 spinalCase('AllThe-small Things');
 
+// Sum All Odd Fibonacci numbers
+function sumFibs(num) {
+  // create an array with the first two fibonacci numbers, initialize the first fibonacci num
+  let newArr = [1, 1];
+  let newFib = 1;
+  // while loop, to add all fibonacci numbers onto an array aslong as they are less then or equal to num
+  while (newFib <= num) {
+    newFib = newArr[0] + newArr[1];
+    if (newFib <= num) {
+      newArr.unshift(newFib);
+    } else {
+      break;
+    }
+  }
+  // filter out all even numbers
+  newArr = newArr.filter(function(el) {
+      return !(el % 2 == 0);
+     });
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  // return the sum of all odd numbers in the array
+  return newArr.reduce(reducer);
+  
+}
+
+sumFibs(75025);
+
+// Sum All Primes, sum all the prime numbers from 1 to num
+
+
+function sumPrimes(num) {
+  // function to check if a number is a prime
+  function isPrime3(n) {
+ if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false; 
+ if (n%2==0) return (n==2);
+ if (n%3==0) return (n==3);
+ let m=Math.sqrt(n);
+ for (let i=5;i<=m;i+=6) {
+  if (n%i==0)     return false;
+  if (n%(i+2)==0) return false;
+ }
+ return true;
+}
+  // create empty array to push the numbers from 0 to num onto
+  // then loop through and push them onto the array
+ let arrOfAll = []; 
+  for (let i = 0; i <= num; i++) {
+    arrOfAll.push(i);
+  }
+  // filter the array so it has only prime numbers
+  arrOfAll = arrOfAll.filter(isPrime3);
+  // get the sum of all prime numbers and return them.
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  return arrOfAll.reduce(reducer);
+}
+
+sumPrimes(977);
