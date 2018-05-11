@@ -205,3 +205,13 @@ function uniteUnique() {
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// Convert HTML entitites, Convert the characters &, <, >, " (double quote), 
+// and ' (apostrophe), in a string to their corresponding HTML entities.
+
+function convertHTML(str) {
+  // use regex to convert the characters to html entities with replace
+  return str.replace(/&/ig, "&amp;").replace(/</ig, "&lt;").replace(/>/ig, "&gt;").replace(/"/ig, "&quot;").replace(/'/ig, "&apos;");
+}
+
+convertHTML('Stuff in "quotation marks"');
