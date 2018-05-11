@@ -215,3 +215,14 @@ function convertHTML(str) {
 }
 
 convertHTML('Stuff in "quotation marks"');
+
+// Spinal Tap Case, Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+
+function spinalCase(str) {
+   
+    return str.replace(/([a-z])([A-Z])/g, '$1 $2').trim().toLowerCase().replace(/ /ig, "-").replace(/_/ig, "-");
+}
+
+spinalCase('AllThe-small Things');
+
