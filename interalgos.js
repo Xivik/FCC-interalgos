@@ -186,3 +186,22 @@ function booWho(bool) {
 }
 
 booWho(null);
+
+// Sorted Union, take a dynamic amount of arrays, and return a new array of unique values in the original provided order
+
+function uniteUnique() {
+  // create array to concat the arguments on so we get a flat array
+  let arr = [];
+  // create a counter for while loop to go through arguments
+  let i = 0;
+  while (arguments[i]) {
+    // while there is still an argument, concat it onto the resultArr
+    arr = arr.concat(arguments[i]);
+    i++;
+   }
+  // now we need to filter out the dupes
+  const filteredArr = arr.filter((item, position) => arr.indexOf(item) == position);
+  return filteredArr;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
