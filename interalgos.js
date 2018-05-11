@@ -90,11 +90,68 @@ if ( /^[A-Z]/.test( before) ) {
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 
-// Missing Letters
-// find the missing letter in the string and return the missing letter
+// Pig Latin convert string to pig latin
 
+function translatePigLatin(str) {
+  // create a regex to look for vowels
+ var vowelIndex = str.search(/[aeiou]/);
+      // there's a vowel on the first character, just add way and return
+      if (vowelIndex == 0) {
+          str += "way";
+          return str;
+        // else start string at end of constenant cluster, add the constenant cluster to end and add ay
+      } else {
+         str = str.substr(vowelIndex) + str.substr(0, vowelIndex) + "ay";
+         return str;
+      }
+}
+translatePigLatin("eightway");
 
 function fearNotLetter(str) {
+
+  // DNA Pairing, The DNA strand is missing the pairing element. 
+  // Take each character, get its pair, and return the results as a 2d array.
+
+
+function pairElement(str) {
+  // turn the string into an array
+  str = str.split("");
+  // create an empty array where we can push the DNA base pairs onto
+  var basePairs = [];
+  // loop through the str array
+  for (var i = 0; i < str.length; i++) {
+    // create empty array called arr, look for the value given and push it onto
+    // arr combined with it's base pair. then push that array onto basePairs
+    if (str[i] == "A") {
+      var arr = [];
+      arr.push(str[i], "T");
+      basePairs.push(arr);
+    } else if (str[i] == "C") {
+      arr = [];
+      arr.push(str[i], "G");
+      basePairs.push(arr);
+    } else if (str[i] == "T") {
+      arr = [];
+      arr.push(str[i], "A");
+      basePairs.push(arr);
+    } else if (str[i] == "G") {
+      arr = [];
+      arr.push(str[i], "C");
+      basePairs.push(arr);
+    } else if (str[i] == "T") {
+      arr = [];
+      arr.push(str[i], "A");
+      basePairs.push(arr);
+    } 
+  }
+  //return the combined pairs
+  return basePairs;
+}
+
+pairElement("ATCGA");
+
+// Missing Letters
+// find the missing letter in the string and return the missing letter
 
  // get the unicode for the first character
   var index = str.charCodeAt(0);
