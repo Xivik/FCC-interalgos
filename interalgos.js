@@ -89,3 +89,27 @@ if ( /^[A-Z]/.test( before) ) {
 }
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+// Missing Letters
+// find the missing letter in the string and return the missing letter
+
+
+function fearNotLetter(str) {
+
+ // get the unicode for the first character
+  var index = str.charCodeAt(0);
+  // loop over the string  
+  for (var i = 0; i < str.length; i++) {
+    // if the unicode matches index, increment 1 and continue with the loop
+    if (str.charCodeAt(i) == index) {
+      index++;
+      continue;
+      // if the unicode doesnt match up with expected index, return the expected index
+    } else if (str.charCodeAt(i) != index) {
+      return String.fromCharCode(index);
+    } 
+  } // if it goes to the loop without a hitch, there's no missing letter, so undefined.
+    return undefined; 
+} 
+
+fearNotLetter("abce");
