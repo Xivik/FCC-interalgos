@@ -362,3 +362,18 @@ return arr.reduce((newArr, el) => Array.isArray(el) ? newArr.concat(steamrollArr
 
 steamrollArray([1, [2], [3, [[4]]]]);
 
+// Binary Agents, Return an English translated sentence of the passed binary string.
+
+
+function binaryAgent(str) {
+	// split the binary string into an array called binary
+  let binary = str.split(" ");
+  // convert binary to decimal
+  let numbers = binary.map(el => parseInt(el, 2)); 
+  // convert decimal to letters and signs
+  let letters = numbers.map(el => String.fromCharCode(el));
+  // combin it back into a string and return
+ return letters.join("");   
+ }
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
