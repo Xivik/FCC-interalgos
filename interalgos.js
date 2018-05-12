@@ -309,3 +309,18 @@ function smallestCommons(arr) {
     return lowestCommon;
 }
 smallestCommons([1,5]);
+
+// Finders Keepers, Create a function that looks through an array (first argument) 
+// and returns the first element in the array that passes a truth test (second argument).
+
+
+function findElement(arr, func) {
+  // create a array with results that pass the truth test
+  let result = arr.filter(func);
+  // return first element in the array
+  return result[0];
+  
+}
+
+findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
+
