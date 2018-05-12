@@ -377,3 +377,25 @@ function binaryAgent(str) {
  }
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+// Everything Be True, Check if the predicate (second argument) 
+// is truthy on all elements of a collection (first argument).
+
+
+function truthCheck(collection, pre) {
+  // loop through the collection
+  for (let i = 0; i < collection.length; i++) {
+    // check if collection has the property, if not return false
+    if (!collection[i].hasOwnProperty(pre)) {
+      return false;
+      // if the property is there, check if it's falsy
+    } else if (!Boolean(collection[i][pre])){
+      return false;
+    }
+  }// if the loop finishes, everything is true
+   return true;
+  
+  
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
