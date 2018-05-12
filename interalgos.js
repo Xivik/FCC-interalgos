@@ -324,3 +324,27 @@ function findElement(arr, func) {
 
 findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
 
+// Drop It, Drop the elements of an array (first argument), 
+//starting from the front, until the predicate (second argument) returns true.
+
+//The second argument, func, is a function you'll use to test the first elements 
+//of the array to decide if you should drop it or not.
+
+
+function dropElements(arr, func) {
+  // loop through the array
+  for ( let i = 0; i < arr.length; i++) {
+     // is function is true, slice the arr at that point and break the loop.
+    if (func(arr[i])) {
+      arr = arr.slice(i);
+      break;
+      // else remove the first element from array, and reset the counter
+    } else {
+      arr.shift();
+      i--;
+    }
+  }
+  return arr;
+}
+
+dropElements([1, 2, 3, 4], function(n) {return n > 5;})
